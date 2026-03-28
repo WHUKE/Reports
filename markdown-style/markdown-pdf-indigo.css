@@ -1,0 +1,390 @@
+/* 兼容 markdown-pdf 的样式文件 */
+/* 基于 typora-indigo.css 修改 */
+
+/* 测试样式 - 如果看到红色背景说明 CSS 已加载 */
+body, .markdown-body {
+  /* background-color: #ffeeee; /* 取消注释此行进行测试 */
+  color: #595959;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  line-height: 1.8em;
+  background-image: linear-gradient(90deg, rgba(60, 10, 30, 0.05) 3%, transparent 0), linear-gradient(1turn, rgba(60, 10, 30, 0.05) 3%, transparent 0);
+  background-size: 20px 20px;
+  background-position: 50%;
+  word-break: break-all;
+  max-width: none;
+  margin: 0;
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+blockquote {
+  margin-left: 0;
+  background-color: #ebf4ff;
+  border-color: #7f9cf5;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #667eea;
+  border-left: 0.25em solid;
+}
+
+strong {
+  color: #5a67d8;
+  font-weight: bold;
+}
+
+strong::before {
+  content: "「";
+}
+
+strong::after {
+  content: "」";
+}
+
+code,
+a {
+  color: #5a67d8;
+  font-weight: 500;
+  font-size: unset;
+}
+
+a {
+  border-color: #667eea;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+code {
+  background-color: #ebf4ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre > code {
+  font-weight: 400;
+  color: unset;
+  line-height: 1.6;
+  padding: 0;
+  background-color: transparent;
+}
+
+blockquote,
+details,
+dl,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 1rem;
+}
+
+/* Reduce extra gap when a list is directly followed by another list */
+ul + ol,
+ol + ul,
+ul + ul,
+ol + ol {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+ol {
+  list-style: decimal;
+  padding-left: 2em;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 2em;
+}
+
+/* Normalize list margins and tighten nested lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Reduce gap for nested lists inside a list item (e.g. numbered item followed by bullets) */
+ol li > ul,
+ul li > ol,
+ul li > ul,
+ol li > ol {
+  margin-top: 0.15rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1.25em; /* slightly indent nested list */
+}
+
+/* Slight vertical spacing between list items, keeps items readable but avoids big gaps */
+li {
+  margin: 0.18rem 0;
+}
+
+/* If a paragraph is directly followed by a list, reduce the top gap */
+p + ul,
+p + ol {
+  margin-top: 0.25rem;
+}
+
+/* 强力覆盖：确保在不同渲染器中列表间距被紧缩 */
+ul + ol,
+ol + ul,
+ul + ul,
+ol + ol,
+p + ul,
+p + ol,
+ol li > ul,
+ul li > ol {
+  margin-top: 0 !important;
+  margin-bottom: 0.4rem !important;
+}
+
+li {
+  margin-top: 0 !important;
+  margin-bottom: 0.18rem !important;
+}
+
+/* 针对渲染器将列表项内容包在 <p> 中的情况，去掉 <p> 的上下 margin */
+.markdown-body li p,
+.markdown-body li > p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 进一步提升选择器优先级，覆盖一些导出器内置样式 */
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body ul + ol,
+.markdown-body ol + ul,
+.markdown-body ul + ul,
+.markdown-body ol + ol,
+.markdown-body p + ul,
+.markdown-body p + ol {
+  margin-top: 0 !important;
+  margin-bottom: 0.45rem !important;
+}
+
+h1,
+h2 {
+  border-color: #5a67d8;
+  border-style: solid;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  font-weight: 500;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  border-bottom: 1px solid #eaecef !important;
+  border-left-width: 6px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 16px;
+  line-height: 1.25;
+  margin-top: 24px;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+blockquote > :first-child {
+  margin-top: 0;
+}
+
+.footnote-ref {
+  border-width: 0px;
+}
+
+img {
+  border-radius: 6px;
+  display: block;
+  margin: 10px auto;
+  object-fit: contain;
+  box-shadow: 2px 4px 7px #999;
+  max-width: 100%;
+}
+
+.footnotes {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.task-list-item {
+  padding-left: 0.3rem;
+  list-style-type: none;
+}
+
+.task-list-item > p {
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.task-list-item.task-list-done > p {
+  color: #525252;
+  text-decoration: line-through;
+}
+
+.task-list-item > input {
+  -webkit-appearance: initial;
+  appearance: initial;
+  display: block;
+  position: absolute;
+  border: 1px solid #5a67d8;
+  border-radius: 0.25rem;
+  margin-left: -1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  transition: border-color 0.3s;
+  background-color: unset;
+}
+
+.task-list-item > input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.task-list-item > input:hover {
+  border-color: #5a67d8;
+}
+
+.task-list-item > input[checked]::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 60%;
+  width: 2px;
+  transform: rotate(40deg);
+  background: #5a67d8;
+}
+
+.task-list-item > input[checked]::after {
+  content: "";
+  position: absolute;
+  top: 46%;
+  left: 25%;
+  height: 30%;
+  width: 2px;
+  transform: rotate(-40deg);
+  background: #5a67d8;
+}
+
+pre {
+  padding: 12px;
+  padding-top: 6px;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 6px;
+  color: #f8f8f2;
+  background: #272822;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre::before {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDU0IDE0Ij4KICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiPgogICAgPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNGRjVGNTYiIHN0cm9rZT0iI0UwNDQzRSIgc3Ryb2tlLXdpZHRoPSIuNSIvPgogICAgPGNpcmNsZSBjeD0iMjYiIGN5PSI2IiByPSI2IiBmaWxsPSIjRkZCRDJFIiBzdHJva2U9IiNERUExMjMiIHN0cm9rZS13aWR0aD0iLjUiLz4KICAgIDxjaXJjbGUgY3g9IjQ2IiBjeT0iNiIgcj0iNiIgZmlsbD0iIzI3QzkzRiIgc3Ryb2tlPSIjMUFBQjI5IiBzdHJva2Utd2lkdGg9Ii41Ii8+CiAgPC9nPgo8L3N2Zz4K");
+  height: 30px;
+  width: 100%;
+  margin-bottom: -7px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+}
+
+/* 表格样式 */
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* 分页相关 */
+@media print {
+  body {
+    background-image: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  pre, blockquote, table {
+    page-break-inside: avoid;
+  }
+}
+
+/* 水印样式 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background-image: url('漫协徽标_镂空_黑白.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Emergency: highest-priority reset for list spacing to handle stubborn renderers */
+body.markdown-body ul,
+body.markdown-body ol,
+body.markdown-body ul li,
+body.markdown-body ol li,
+body.markdown-body ul + ol,
+body.markdown-body ol + ul,
+body.markdown-body p + ul,
+body.markdown-body p + ol,
+.markdown-body li p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body.markdown-body li {
+  margin: 0.15rem 0 !important;
+}
+
+/* End of emergency overrides */

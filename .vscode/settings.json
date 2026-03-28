@@ -1,0 +1,6 @@
+{
+    "markdown-pdf.displayHeaderFooter": false,
+    "markdown-pdf.styles": [
+        ".\\\\markdown-style\\\\markdown-pdf-indigo.css"
+    ]
+}
